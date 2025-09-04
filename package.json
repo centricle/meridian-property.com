@@ -1,0 +1,25 @@
+{
+  "name": "meridian-property.com",
+  "version": "1.0.0",
+  "description": "Minimal property management website",
+  "private": true,
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --minify",
+    "build:html": "mkdir -p dist && cp -r src/*.html dist/",
+    "build": "npm run build:css && npm run build:html",
+    "watch:css": "npx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --watch",
+    "watch:html": "nodemon --watch src --ext html --exec 'npm run build:html'",
+    "serve": "browser-sync start --config bs-config.js",
+    "dev": "npm run build:html && npm-run-all --parallel watch:css watch:html serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "browser-sync": "^3.0.4",
+    "nodemon": "^3.1.10",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^4.0.0"
+  }
+}
